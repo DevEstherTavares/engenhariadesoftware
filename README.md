@@ -32,7 +32,7 @@ A seguir, detalhamos a solução proposta, que visa atender às necessidades ún
 
 Descrição do cenário onde o sistema deve funcionar:
 
-1. Uma clínica veterinária atende animais domésticos (gatos e cachorros) e silvestres liberados pelo ibama (aves como a cacatua e a calopsita, jabutis, iguanas, cobras e furôes).
+1. Uma clínica veterinária atende animais domésticos (gatos e cachorros) e silvestres liberados pelo ibama (aves como a cacatua e a calopsita, jabutis, iguanas, cobras e furões).
 2. Marcar animais com RFID.
 3. Os clientes devem fazer um cadastro de si e dos animais.
 4. Os clientes devem informar as condições nas quais os animais chegam.
