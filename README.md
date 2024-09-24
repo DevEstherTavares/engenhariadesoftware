@@ -35,7 +35,7 @@ O projeto a seguir descreve o desenvolvimento de um sistema personalizado para u
 A seguir, detalhamos a solução proposta, que visa atender às necessidades únicas da empresa e proporcionar uma gestão mais eficiente e eficaz dos serviços oferecidos pelo petshop.
 
 # 2. Descrição de negócio
-crie um diagrama entidade relacionamento usando markdown e ermaid para as regras de negócio a seguir: 
+ 
 1. Uma clínica veterinária atende animais domésticos (gatos e cachorros) e silvestres liberados pelo Ibama (aves como a cacatua e a calopsita, jabutis, iguanas, cobras e furões).
 2. Marcar animais com RFID.
 3. Os clientes devem fazer um cadastro de si e dos animais.
