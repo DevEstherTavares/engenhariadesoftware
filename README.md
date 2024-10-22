@@ -399,6 +399,54 @@ classDiagram
 
 # 10. Diagrama de navegação de telas
 
+```mermaid
+flowchart TD
+    A[Início] --> B[Login/Cadastro]
+    A --> C[Visualizar Animais]
+    A --> D[Agendar Atendimento]
+    A --> E[Visualizar Receitas]
+    A --> F[Notificações]
+    A --> G[Atualizar Cadastro]
+
+    B --> H[Cadastrar Cliente]
+    B --> I[Cadastrar Animal]
+
+    C --> J[Ficha do Animal]
+    J --> K[Atualizar Ficha]
+    J --> L[Visualizar Histórico de Saúde]
+    J --> M[Visualizar Carteira de Vacinação]
+
+    D --> N[Selecionar Veterinário]
+    D --> O[Selecionar Data e Horário]
+    D --> P[Colocar na Fila de Espera]
+    D --> Q[Visualizar Agenda]
+
+    E --> R[Visualizar Receitas Passadas]
+    E --> S[Receitas Atuais]
+
+    F --> T[Configurar Notificações]
+    F --> U[Histórico de Notificações]
+
+    G --> V[Atualizar Informações do Animal]
+    G --> W[Atualizar Dados do Cliente]
+
+    H --> A
+    I --> A
+    K --> C
+    L --> C
+    M --> C
+    N --> D
+    O --> D
+    P --> D
+    Q --> D
+    R --> E
+    S --> E
+    T --> F
+    U --> F
+    V --> G
+    W --> G
+```
+
 # 11. Pilha tecnológica
 
 # 12. Requisitos de sistemas
