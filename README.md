@@ -388,7 +388,12 @@ classDiagram
 
 # 7. Diagrama de componentes
 
+![<alt-text>](<Diagrama de componentes.jpeg>)
+
+
 # 8. Diagramas de implantação
+
+![<alt-text>](<Diagrama de Implementação.jpeg>)
 
 # 9. Protótipo de telas
 
@@ -630,3 +635,7 @@ INSERT INTO RECOMENDACAO (Racao_Recomendada, Suplemento_Recomendado, RFID) VALUE
 ('Ração Premium', 'Suplemento Vitaminico A', 'RFID001'),
 ('Ração Gourmet', 'Suplemento Mineral B', 'RFID002');
 ```
+
+
+[componentDiagramImage1]: <Diagrama de componentes-1.jpeg>
+[diagramReference]: <C:\Program Files\Git\bin\engenhariadesoftware-EstherTavares\Diagrama de componentes-1.jpeg>
