@@ -449,9 +449,219 @@ flowchart TD
 
 # 11. Pilha tecnológica
 
+
 # 12. Requisitos de sistemas
+## 12.1. Requisitos do lado do cliente
+
+1. Cadastro de Cliente:
+
+- O cliente deve poder realizar o cadastro no sistema, informando seus dados pessoais (nome, endereço, telefone, e-mail, etc.).
+
+2. Cadastro de Animal:
+
+- O cliente deve cadastrar seus animais no sistema, fornecendo informações como espécie, raça, idade, condições físicas, hábitos e tipo de ração consumida.
+- O cliente pode atualizar o cadastro do animal a qualquer momento, como mudanças de hábitos ou troca de ração.
+
+3. Consulta de Fichas e Prontuários:
+
+- O cliente pode visualizar o histórico médico e as fichas de atendimento de cada um de seus animais.
+
+4. Visualização de Receitas:
+
+- O cliente pode acessar as receitas médicas emitidas após o atendimento dos seus animais.
+
+5. Agendamento de Consultas e Serviços:
+
+- O cliente deve poder agendar consultas com veterinários e serviços como banho, tosa, fisioterapia, cirurgias, entre outros.
+- O cliente deve ser informado sobre a disponibilidade de horários e poderá marcar consultas futuras.
+
+6. Fila de Espera e Notificações:
+
+- O sistema deve notificar o cliente via SMS ou e-mail quando uma consulta ou serviço estiver próximo.
+- O cliente deve ser informado se for necessário esperar para o atendimento, sendo notificado quando o animal estiver próximo de ser atendido.
+
+7. Acesso à Carteira de Vacinação:
+
+- O cliente deve ter acesso à carteira de vacinação do animal, contendo as vacinas aplicadas e as vacinas obrigatórias pendentes.
+
+8. Lembretes de Vacinas e Medicamentos:
+
+- O cliente será avisado quando uma vacina obrigatória estiver próxima.
+- O sistema deve emitir lembretes automáticos para a próxima dose de medicamentos prescritos e permitir que o cliente confirme se administrou o medicamento ao animal.
+
+9. Serviços Personalizados:
+
+- O cliente pode visualizar recomendações personalizadas de ração e suplementos com base no histórico de saúde e necessidades nutricionais do animal.
+- O cliente deve poder contratar serviços auxiliares para animais com sobrepeso.
+
+10. Atualização de Cadastro e Preferências:
+
+- O cliente poderá modificar as informações do seu cadastro e do animal a qualquer momento, como a mudança de hábitos ou troca de ração.
+Confirmação de Serviço de Pintura de Cachorro:
+- O cliente deve poder optar pelo serviço de pintura de cachorro durante o agendamento de banho e tosa.
+
+## 12.2. Requisitos do lado do servidor
+
+1. Gerenciamento de Cadastro de Clientes e Animais:
+
+- O sistema deve permitir ao servidor criar, editar e excluir cadastros de clientes e seus animais.
+- O sistema deve permitir a inclusão de detalhes sobre os hábitos, condições físicas e ração dos animais.
+- Deve ser possível ao servidor marcar animais com RFID para rastreamento e identificação.
+
+2. Gerenciamento de Prontuários e Fichas Médicas:
+
+- O servidor deve armazenar e manter fichas de atendimento e prontuários médicos de cada animal, registrando observações, diagnósticos e tratamentos recomendados.
+- O sistema deve permitir a consulta e atualização das fichas durante ou após os atendimentos.
+
+3. Agenda de Consultas e Serviços:
+
+- O sistema deve manter uma agenda de atendimento de veterinários, permitindo ao servidor marcar horários para consultas, cirurgias, banho e tosa, e outros serviços.
+- Deve ser possível ao servidor gerenciar a fila de espera dos animais e ajustar a agenda conforme necessário.
+
+4. Verificação de Disponibilidade de Veterinários:
+
+- O sistema deve verificar automaticamente a disponibilidade dos veterinários para novos atendimentos e consultas com base na agenda do dia.
+- Se não houver disponibilidade imediata, o sistema deve permitir colocar o cliente e o animal na fila de espera.
+
+5. Entrevista e Avaliação do Veterinário:
+
+- O servidor deve registrar as respostas do cliente durante a entrevista realizada pelo veterinário, garantindo que as informações sejam armazenadas no prontuário do animal.
+- As anotações do exame físico e observações clínicas devem ser inseridas no sistema pelo veterinário.
+
+6. Emissão de Receitas Médicas:
+
+- O sistema deve permitir que o veterinário emita receitas médicas para os animais após os atendimentos.
+- Essas receitas devem ser vinculadas ao prontuário do animal e estar acessíveis ao cliente.
+
+7. Serviços de Banho, Tosa e Outros Procedimentos:
+
+- O servidor deve gerenciar serviços de banho, tosa, fisioterapia, nutrição, cirurgias e curativos.
+- O sistema deve permitir que o servidor registre a execução desses serviços e associe-os ao prontuário do animal.
+
+8. Notificações e Lembretes Automatizados:
+
+- O sistema deve enviar automaticamente notificações ao cliente via SMS ou e-mail quando uma consulta ou serviço estiver próximo.
+- O sistema deve emitir lembretes automáticos sobre vacinas e próximas doses de medicamentos, notificando o cliente e permitindo o acompanhamento do status da medicação.
+
+9. Manutenção da Carteira de Vacinação:
+
+- O servidor deve poder inserir informações sobre as vacinas aplicadas e emitir lembretes automáticos sobre vacinas obrigatórias que estejam próximas.
+- A carteira de vacinação deve ser atualizada com cada nova aplicação.
+
+10. Recomendações Personalizadas de Ração e Suplementos:
+
+- O sistema deve fornecer ao servidor a capacidade de gerar recomendações personalizadas de ração e suplementos com base no histórico de saúde dos animais.
+- Essas recomendações devem ser exibidas automaticamente para o cliente, de acordo com a condição de saúde do animal.
+- Gerenciamento de Serviços Personalizados (Ex: Pintura de Cachorro):
+- O servidor deve registrar solicitações específicas, como o serviço de pintura de cachorro, e garantir que sejam realizados de acordo com o pedido do cliente.
+
+11. Emissão de Faturas e Controle Financeiro:
+
+- O servidor deve gerar uma fatura de todos os serviços prestados (consultas, procedimentos, vendas de produtos) para cada atendimento realizado.
+- O sistema deve registrar todas as receitas geradas por animal, vinculando-as ao prontuário e histórico financeiro do cliente.
+
+12. Atualização de Informações dos Animais:
+
+- O sistema deve permitir que o servidor edite e atualize as informações do animal a qualquer momento, com base nos dados fornecidos pelo cliente, como mudança de hábitos ou troca de ração.
 
 # 13. Considerações sobre segurança
+
+## 13.1. Considerções do lado do cliente
+
+1. Autenticação Segura:
+
+- O sistema deve exigir autenticação por meio de credenciais (usuário e senha) fortes para que os clientes acessem suas contas.
+- Recomenda-se a implementação de autenticação multifator (MFA) para adicionar uma camada extra de segurança ao processo de login.
+
+2. Proteção de Dados Pessoais e de Animais:
+
+- Todas as informações pessoais do cliente (nome, endereço, telefone, e-mail) e dados sobre os animais (hábitos, condições de saúde, carteira de vacinação) devem ser protegidas com criptografia tanto em trânsito quanto em repouso.
+- O sistema deve seguir a Lei Geral de Proteção de Dados (LGPD) ou outras regulamentações locais de privacidade para garantir a conformidade no tratamento e armazenamento desses dados.
+
+3. Autorização de Acesso:
+
+- O sistema deve garantir que apenas o cliente registrado possa acessar as informações de seus próprios animais e dados médicos. Qualquer tentativa de acesso não autorizado a essas informações deve ser bloqueada e registrada.
+
+4. Segurança de Comunicação:
+
+- Todo o tráfego entre o cliente e o sistema deve ser protegido com HTTPS, utilizando certificados SSL/TLS para garantir que as informações não sejam interceptadas por terceiros mal-intencionados.
+
+5. Notificações e Lembretes Seguros:
+
+- As notificações enviadas por SMS ou e-mail, como lembretes de consultas ou vacinas, devem ser cuidadosas em não incluir informações sensíveis diretamente, evitando exposição de dados pessoais ou de saúde dos animais nesses canais.
+
+6. Gerenciamento de Sessão:
+
+- O sistema deve encerrar automaticamente as sessões de clientes após um período de inatividade para evitar que terceiros não autorizados possam acessar suas contas, especialmente em dispositivos compartilhados.
+
+7. Recuperação Segura de Senha:
+
+- O processo de recuperação de senha deve ser seguro, exigindo validações adequadas, como envio de links de redefinição por e-mail ou perguntas de segurança, para evitar que contas de clientes sejam comprometidas.
+
+8. Registro de Atividades:
+
+- O sistema deve registrar todas as atividades críticas realizadas pelo cliente (como login, alterações no cadastro de animais, agendamentos e acesso a prontuários), permitindo auditorias e detecção de atividades suspeitas.
+
+9. Controle de Acesso às Fichas e Receitas:
+
+- As fichas de atendimento e receitas médicas dos animais devem ser protegidas, permitindo que apenas o cliente dono do animal as visualize, evitando o compartilhamento não autorizado dessas informações com outros clientes ou terceiros.
+
+## 13.2. Considerções do lado do servidor
+
+1. Autenticação Segura e Controle de Acesso:
+
+- O sistema deve exigir que todos os funcionários, como veterinários e atendentes, realizem login com credenciais seguras.
+- Deve haver um controle rígido de acesso baseado em funções (RBAC), garantindo que cada funcionário tenha permissão para acessar apenas as informações e funcionalidades necessárias para o seu papel (ex: veterinários acessam prontuários, atendentes não podem editar dados médicos).
+
+2. Criptografia de Dados:
+
+- Todos os dados sensíveis, incluindo informações pessoais dos clientes e dados médicos dos animais, devem ser criptografados tanto em trânsito (usando HTTPS/SSL/TLS) quanto em repouso no banco de dados.
+- As receitas e prontuários, por conterem informações sensíveis de saúde, devem ser criptografados de maneira que somente usuários autorizados possam acessá-los.
+
+3. Segurança na Comunicação:
+
+- As interações entre o servidor e outros sistemas (como serviços de notificação por SMS ou e-mail) devem ser protegidas por meio de APIs seguras com autenticação e criptografia.
+- A comunicação entre as camadas de aplicação e banco de dados também deve ser protegida contra interceptações ou ataques de "man-in-the-middle".
+
+4. Proteção Contra Ataques de Injeção e XSS:
+
+- O sistema deve ser protegido contra ataques de injeção de SQL ou script (XSS), validando e sanitizando todas as entradas de dados fornecidas pelos usuários, tanto do lado do cliente quanto no backend.
+- A aplicação deve empregar prepared statements ou ORM (Object-Relational Mapping) para consultas seguras ao banco de dados, evitando injeção de código malicioso.
+
+5. Gerenciamento de Sessões e Autenticação:
+
+- O servidor deve implementar um gerenciamento seguro de sessões, com tokens expiratórios e técnicas como o uso de cookies seguros e protegidos contra CSRF (Cross-Site Request Forgery).
+- Sessões de funcionários devem expirar após um período de inatividade, e múltiplas tentativas falhas de login devem acionar bloqueios temporários ou desafios de autenticação, como CAPTCHA ou MFA.
+
+6. Registro e Monitoramento de Atividades:
+
+- O servidor deve manter logs de todas as atividades importantes realizadas no sistema, como consultas de prontuários, modificações de cadastro, e geração de receitas.
+- O sistema deve ser capaz de identificar e registrar tentativas de acesso não autorizado, comportamento anômalo, e possíveis ataques (por exemplo, tentativas de "force brute" ou "phishing").
+
+7. Backup e Recuperação de Dados:
+
+- Implementar uma rotina automatizada de backup dos dados, garantindo a redundância das informações e a recuperação em caso de falhas ou ataques (ex: ransomware).
+- Backups devem ser armazenados de forma segura e criptografada, e o acesso a eles deve ser restrito a funcionários autorizados.
+
+8. Proteção Contra DDoS e Alta Disponibilidade:
+
+- O sistema deve ser protegido contra ataques de negação de serviço distribuída (DDoS), utilizando soluções de firewall, balanceamento de carga e limitação de solicitações para evitar sobrecarga no servidor.
+- Deve-se garantir alta disponibilidade do sistema, implementando servidores redundantes e estratégias de failover para minimizar o tempo de inatividade.
+
+9. Atualizações e Patches de Segurança:
+
+- O servidor deve ser constantemente atualizado com patches de segurança para proteger o sistema contra vulnerabilidades conhecidas.
+- Todos os componentes de software usados no servidor, incluindo bibliotecas e dependências, devem ser mantidos atualizados.
+
+10. Segurança na Integração com RFID:
+
+- O servidor deve garantir que o sistema de marcação de animais com RFID esteja protegido contra clonagem ou adulteração de dados.
+- A comunicação entre o sistema de RFID e o servidor deve ser feita de maneira segura, garantindo que os dados de identificação dos animais não sejam comprometidos.
+
+11. Gerenciamento de Dados e Compliance:
+
+- O servidor deve garantir a conformidade com leis de proteção de dados (como LGPD ou GDPR), especialmente no armazenamento, processamento e compartilhamento de dados pessoais dos clientes.
+- As informações devem ser processadas e armazenadas de forma segura e somente para as finalidades descritas, com mecanismos para anonimização ou pseudonimização de dados sensíveis, quando aplicável.
 
 # 14. Manutenção e instalação
 
