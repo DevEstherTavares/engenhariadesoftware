@@ -37,12 +37,26 @@
 - [10. Diagrama de navegação de telas](#10-diagrama-de-navegação-de-telas)
 - [11. Pilha tecnológica](#11-pilha-tecnológica)
 - [12. Requisitos de sistemas](#12-requisitos-de-sistemas)
+  - [12.1. Requisitos do lado do cliente](#121-requisitos-do-lado-do-cliente)
+  - [12.2. Requisitos do lado do servidor](#122-requisitos-do-lado-do-servidor)
 - [13. Considerações sobre segurança](#13-considerações-sobre-segurança)
-- [14. Manutenção e instalação](#14-manutenção-e-instalação)
-- [15. Glossário](#15-glossário)
+  - [13.1. Considerções do lado do cliente](#131-considerções-do-lado-do-cliente)
+  - [13.2. Considerções do lado do servidor](#132-considerções-do-lado-do-servidor)
+- [14. Manutenção, instalação e Novas funcionalidades](#14-manutenção-instalação-e-novas-funcionalidades)
+  - [14.1. Instalação](#141-instalação)
+  - [14.2. Manutenção](#142-manutenção)
+  - [14.3. Planos de contingência](#143-planos-de-contingência)
+  - [14.4. Procedimentos Pós-Instalação](#144-procedimentos-pós-instalação)
+  - [14.5. Monitoramento Lado Cliente e Servidor](#145-monitoramento-lado-cliente-e-servidor)
+  - [14.6. Critérios de Backup e Restore](#146-critérios-de-backup-e-restore)
+  - [14.7. Suporte ao Usuário e Critérios de Atendimento](#147-suporte-ao-usuário-e-critérios-de-atendimento)
+- [15. Treinamento](#15-treinamento)
+  - [15.1. Treinamento para Usuários (Clientes e Veterinários)](#151-treinamento-para-usuários-clientes-e-veterinários)
+  - [15.2. Treinamento para Administradores](#152-treinamento-para-administradores)
 - [16. Script SQL](#16-script-sql)
   - [16.1. Comandos CREATE table](#161-comandos-create-table)
   - [16.2. Comandos INSERT table](#162-comandos-insert-table)
+
 
 # 1. Introdução
 
