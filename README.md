@@ -656,7 +656,7 @@ Confirmação de Serviço de Pintura de Cachorro:
 
 # 13. Considerações sobre segurança
 
-## 13.1. Considerções do lado do cliente
+## 13.1. Considerações do lado do cliente
 
 **1. Autenticação Segura:**
 
@@ -696,7 +696,7 @@ Confirmação de Serviço de Pintura de Cachorro:
 
 - As fichas de atendimento e receitas médicas dos animais devem ser protegidas, permitindo que apenas o cliente dono do animal as visualize, evitando o compartilhamento não autorizado dessas informações com outros clientes ou terceiros.
 
-## 13.2. Considerções do lado do servidor
+## 13.2. Considerações do lado do servidor
 
 **1. Autenticação Segura e Controle de Acesso:**
 
