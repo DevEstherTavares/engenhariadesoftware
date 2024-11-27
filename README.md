@@ -131,6 +131,44 @@ Descrição do cenário onde o sistema deve funcionar:
 
 **31. O cliente pode visualizar recomendações personalizadas de ração e suplementos com base no histórico de saúde do animal.**
 
+## 2.1. Requisitos
+
+> Requisitos funcionais e não funcionais
+
+| **Categoria**           | **Descrição**                                                                                                                                                   |
+|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Requisitos Funcionais**|                                                                                                                                                                 |
+| RF01                     | Permitir o cadastro de clientes e seus animais.                                                                                                                |
+| RF02                     | Registrar condições nas quais os animais chegam à clínica.                                                                                                     |
+| RF03                     | Permitir o cadastro de hábitos e tipo de ração consumida pelos animais.                                                                                        |
+| RF04                     | Possibilitar a marcação de animais com RFID.                                                                                                                   |
+| RF05                     | Gerenciar agendas de atendimento para os veterinários.                                                                                                         |
+| RF06                     | Registrar atendimentos, fichas e prontuários para cada animal.                                                                                                 |
+| RF07                     | Emitir receitas após o atendimento.                                                                                                                            |
+| RF08                     | Permitir a marcação de horários futuros de atendimento.                                                                                                        |
+| RF09                     | Possibilitar a consulta de fichas, prontuários e receitas pelos clientes.                                                                                       |
+| RF10                     | Notificar clientes sobre consultas ou serviços próximos via SMS ou e-mail.                                                                                     |
+| RF11                     | Disponibilizar lembretes automáticos sobre doses de medicamentos prescritos.                                                                                   |
+| RF12                     | Permitir ao cliente atualizar o cadastro do animal a qualquer momento.                                                                                         |
+| RF13                     | Exibir a carteira de vacinação do animal e emitir alertas sobre vacinas obrigatórias.                                                                           |
+| RF14                     | Oferecer recomendações personalizadas de ração e suplementos com base no histórico de saúde do animal.                                                          |
+| RF15                     | Gerenciar serviços adicionais como banho, tosa, pintura de cachorro, fisioterapia e nutrição.                                                                   |
+| RF16                     | Suportar procedimentos médicos, como cirurgias, injeções e curativos.                                                                                           |
+| RF17                     | Gerenciar atendimentos realizados por mais de um veterinário para um único animal.                                                                              |
+| RF18                     | Permitir que o atendente verifique agendas e insira o cliente e animal na fila de espera, se necessário.                                                        |
+| RF19                     | Registrar informações obtidas durante entrevistas com os donos no prontuário.                                                                                   |
+| **Requisitos Não Funcionais**|                                                                                                                                                             |
+| RNF01                    | O sistema deve ser acessível via dispositivos móveis e desktops.                                                                                                |
+| RNF02                    | A interface deve ser intuitiva e fácil de usar para diferentes tipos de usuários (clientes, atendentes e veterinários).                                         |
+| RNF03                    | O sistema deve garantir a segurança e privacidade das informações dos clientes e seus animais.                                                                  |
+| RNF04                    | As notificações devem ser enviadas em tempo hábil, com opções de configuração por parte dos clientes (SMS ou e-mail).                                           |
+| RNF05                    | O sistema deve ter alta disponibilidade, com um uptime mínimo de 99%.                                                                                          |
+| RNF06                    | O desempenho do sistema deve permitir a realização de operações em tempo real, como agendamento e consulta de fichas.                                           |
+| RNF07                    | As informações armazenadas devem ser mantidas de forma organizada, para fácil recuperação e análise.                                                            |
+| RNF08                    | O sistema deve ser escalável para suportar aumento no número de clientes, animais e serviços oferecidos.                                                        |
+| RNF09                    | Deve-se garantir backups automáticos diários para evitar perda de dados.                                                                                        |
+
+
 # 3. Visão geral do sistema
 
 O sistema atende às necessidades dos clientes nas seguintes funcionalidades:
@@ -256,6 +294,144 @@ erDiagram
     Animal ||--o{ Servico : "recebe"
 
 ```
+## 4.1. Descrição das Entidades e Relacionamentos
+
+## **Entidades**
+
+> ### **CLIENTE**
+- **Descrição:** Representa os clientes que possuem animais atendidos na clínica veterinária.
+- **Atributos:**
+  - `id_cliente` (PK): Identificador único do cliente.
+  - `nome`: Nome completo do cliente.
+  - `endereco`: Endereço residencial do cliente.
+  - `telefone`: Número de telefone para contato.
+  - `email`: Endereço de e-mail do cliente.
+
+---
+
+> ### **ANIMAL**
+- **Descrição:** Representa os animais cadastrados para atendimento na clínica.
+- **Atributos:**
+  - `id_animal` (PK): Identificador único do animal.
+  - `nome`: Nome do animal.
+  - `especie`: Espécie do animal (ex.: cachorro, gato, cacatua).
+  - `rfid`: Código RFID para identificação.
+  - `condicao_chegada`: Condições do animal ao chegar à clínica.
+  - `tipo_racao`: Tipo de ração consumida pelo animal.
+  - `habitos`: Hábitos específicos do animal.
+  - `id_cliente` (FK): Referência ao cliente responsável pelo animal.
+
+---
+
+> ### **VETERINARIO**
+- **Descrição:** Representa os veterinários que realizam os atendimentos.
+- **Atributos:**
+  - `id_veterinario` (PK): Identificador único do veterinário.
+  - `nome`: Nome do veterinário.
+  - `especialidade`: Área de especialização (ex.: animais domésticos, silvestres).
+
+---
+
+> ### **AGENDA**
+- **Descrição:** Representa os horários disponíveis para atendimentos.
+- **Atributos:**
+  - `id_agenda` (PK): Identificador único da agenda.
+  - `data`: Data do agendamento.
+  - `horario`: Horário do agendamento.
+  - `id_veterinario` (FK): Referência ao veterinário responsável pelo horário.
+
+---
+
+> ### **ATENDIMENTO**
+- **Descrição:** Registra os atendimentos realizados na clínica.
+- **Atributos:**
+  - `id_atendimento` (PK): Identificador único do atendimento.
+  - `id_agenda` (FK): Referência à agenda do atendimento.
+  - `id_animal` (FK): Referência ao animal atendido.
+  - `id_cliente` (FK): Referência ao cliente que agendou o atendimento.
+  - `id_veterinario` (FK): Referência ao veterinário que realizou o atendimento.
+  - `ficha`: Resumo do atendimento.
+  - `prontuario`: Detalhes médicos do atendimento.
+  - `receita`: Receita médica emitida durante o atendimento.
+
+---
+
+> ### **SERVICO**
+- **Descrição:** Representa os serviços oferecidos pela clínica veterinária.
+- **Atributos:**
+  - `id_servico` (PK): Identificador único do serviço.
+  - `descricao`: Descrição do serviço (ex.: banho, tosa, fisioterapia).
+  - `preco`: Preço do serviço.
+
+---
+
+> ### **ANIMAL_SERVICO**
+- **Descrição:** Relaciona os serviços utilizados por cada animal.
+- **Atributos:**
+  - `id_animal` (FK): Referência ao animal que utilizou o serviço.
+  - `id_servico` (FK): Referência ao serviço utilizado.
+  - `data`: Data do serviço.
+  - `horario`: Horário do serviço.
+
+---
+
+> ### **MEDICAMENTO**
+- **Descrição:** Representa medicamentos disponíveis para prescrição.
+- **Atributos:**
+  - `id_medicamento` (PK): Identificador único do medicamento.
+  - `nome`: Nome do medicamento.
+  - `descricao`: Informações adicionais sobre o medicamento.
+  - `dose`: Dosagem recomendada.
+
+---
+
+>### **PRESCRICAO**
+- **Descrição:** Registra as prescrições de medicamentos feitas durante os atendimentos.
+- **Atributos:**
+  - `id_prescricao` (PK): Identificador único da prescrição.
+  - `id_atendimento` (FK): Referência ao atendimento relacionado.
+  - `id_medicamento` (FK): Referência ao medicamento prescrito.
+  - `data_inicio`: Data de início da administração do medicamento.
+  - `data_fim`: Data de término da administração.
+  - `observacoes`: Notas adicionais sobre a prescrição.
+
+---
+
+## **Relacionamentos**
+
+1. **CLIENTE possui ANIMAL**
+   - Um cliente pode possuir vários animais.
+   - Um animal pertence a um único cliente.
+
+2. **ANIMAL atendido_por VETERINARIO**
+   - Um animal pode ser atendido por vários veterinários.
+   - Um veterinário pode atender vários animais.
+
+3. **VETERINARIO possui AGENDA**
+   - Cada veterinário tem sua própria agenda de atendimentos.
+
+4. **ANIMAL participa ATENDIMENTO**
+   - Um animal pode participar de vários atendimentos.
+   - Cada atendimento é associado a um único animal.
+
+5. **CLIENTE agenda ATENDIMENTO**
+   - Um cliente pode agendar vários atendimentos para seus animais.
+   - Cada atendimento é agendado por um único cliente.
+
+6. **ATENDIMENTO emite PRESCRICAO**
+   - Um atendimento pode gerar várias prescrições.
+   - Cada prescrição pertence a um único atendimento.
+
+7. **PRESCRICAO inclui MEDICAMENTO**
+   - Uma prescrição pode incluir um único medicamento.
+   - Um medicamento pode estar em várias prescrições.
+
+8. **ANIMAL utiliza SERVICO**
+   - Um animal pode utilizar vários serviços ao longo do tempo.
+   - Cada serviço pode ser utilizado por vários animais.
+
+---
+
 # 5. Diagrama de classe
 
 ```mermaid
@@ -369,7 +545,101 @@ classDiagram
     Animal "1" -- "0..*" LembreteMedicamento : possui >
     Animal "1" -- "0..*" Recomendacao : recebe >
 ```
+## 5.1. Descrição das Classes e Relacionamentos
+
+#### **Classes**
+
+1. **Cliente**
+   - **Descrição:** Representa os clientes da clínica veterinária. Cada cliente é responsável por um ou mais animais e pode realizar ações no sistema, como atualizar dados dos animais, agendar consultas e visualizar fichas.
+   - **Atributos:**
+     - `id` (int): Identificador único do cliente.
+     - `nome` (String): Nome do cliente.
+     - `endereco` (String): Endereço do cliente.
+     - `telefone` (String): Contato telefônico.
+     - `email` (String): Endereço de e-mail.
+   - **Métodos:**
+     - `visualizarAnimais()`: Permite ao cliente visualizar seus animais cadastrados.
+     - `visualizarFichas()`: Exibe fichas médicas dos animais.
+     - `atualizarCadastroAnimal()`: Atualiza os dados do animal.
+     - `receberNotificacao()`: Envia notificações para o cliente.
+
+2. **Animal**
+   - **Descrição:** Representa os animais atendidos pela clínica. Cada animal possui informações de identificação e hábitos.
+   - **Atributos:**
+     - `id` (int): Identificador único do animal.
+     - `nome` (String): Nome do animal.
+     - `especie` (String): Espécie do animal (ex.: gato, cachorro, silvestre).
+     - `rfid` (String): Código RFID para rastreamento.
+     - `condicaoChegada` (String): Condições no momento da chegada à clínica.
+     - `tipoRacao` (String): Tipo de ração consumida pelo animal.
+     - `habitos` (String): Hábitos do animal.
+   - **Métodos:**
+     - `visualizarCarteiraVacinacao()`: Exibe a carteira de vacinação do animal.
+     - `obterRecomendacoesRacao()`: Fornece recomendações de ração e suplementos.
+
+3. **Veterinario**
+   - **Descrição:** Representa os veterinários da clínica, responsáveis por realizar atendimentos, emitir receitas e gerenciar prontuários.
+   - **Atributos:**
+     - `id` (int): Identificador único do veterinário.
+     - `nome` (String): Nome do veterinário.
+     - `especialidade` (String): Área de especialidade do veterinário.
+   - **Métodos:**
+     - `realizarEntrevista()`: Coleta informações do cliente sobre o animal.
+     - `examinarAnimal()`: Realiza exames no animal.
+     - `emitirReceita()`: Gera receitas para tratamentos ou medicamentos.
+
+4. **Atendente**
+   - **Descrição:** Representa os atendentes da clínica, responsáveis por organizar agendamentos, filas de espera e direcionar clientes.
+   - **Atributos:**
+     - `id` (int): Identificador único do atendente.
+     - `nome` (String): Nome do atendente.
+   - **Métodos:**
+     - `verificarAgenda()`: Consulta disponibilidade de horários.
+     - `colocarNaFilaEspera()`: Adiciona o cliente à fila de espera.
+     - `acompanharClienteVeterinario()`: Direciona o cliente até o veterinário.
+
+5. **Atendimento**
+   - **Descrição:** Representa o processo de atendimento realizado na clínica, incluindo geração de fichas e prontuários.
+   - **Atributos:**
+     - `id` (int): Identificador único do atendimento.
+     - `ficha` (Ficha): Documento inicial do atendimento.
+     - `prontuario` (Prontuario): Detalhes do atendimento médico.
+   - **Métodos:**
+     - `emitirReceita()`: Gera uma receita associada ao atendimento.
+
+---
+
+## 5.2. **Relacionamentos**
+
+1. **Cliente - Animal**
+   - **Descrição:** Um cliente pode possuir vários animais. Cada animal pertence a um único cliente.
+   - **Cardinalidade:** 1 Cliente → 0..* Animais.
+
+2. **Animal - Atendimento**
+   - **Descrição:** Um animal pode participar de vários atendimentos ao longo do tempo.
+   - **Cardinalidade:** 1 Animal → 0..* Atendimentos.
+
+3. **Veterinario - Atendimento**
+   - **Descrição:** Um veterinário pode realizar diversos atendimentos.
+   - **Cardinalidade:** 1 Veterinario → 0..* Atendimentos.
+
+4. **Atendente - Atendimento**
+   - **Descrição:** Um atendente organiza atendimentos, adicionando clientes às agendas e filas de espera.
+   - **Cardinalidade:** 1 Atendente → 0..* Atendimentos.
+
+5. **Atendimento - Agenda**
+   - **Descrição:** Cada atendimento está vinculado a um horário em uma agenda.
+   - **Cardinalidade:** 1 Atendimento → 1 Agenda. 
+
+6. **Animal - Servico**
+   - **Descrição:** Um animal pode utilizar múltiplos serviços, como banho, tosa e cirurgias.
+   - **Cardinalidade:** 1 Animal → 0..* Servicos.
+
 # 6. Casos de uso
+
+## 6.1. Casos de uso
+
+![<alt-text>](<Diagrama casos de uso.jpg>)
 
 # 6.2. Histórias de Usuário
 
@@ -484,9 +754,128 @@ classDiagram
 
 ![<alt-text>](<Diagrama de Implementação.jpeg>)
 
-# 9. Protótipo de telas
+# 9. Digramas C4
 
-# 10. Diagrama de navegação de telas
+## 9.1. Diagrama de contexto
+
+```mermaid
+graph LR
+    Cliente["Cliente"] -->|Acessa| Sistema["Sistema da Clínica Veterinária"]
+    Sistema -->|Fornece| Veterinario["Veterinário"]
+    Sistema -->|Gerencia| Atendente["Atendente"]
+    Sistema -->|Notifica| Cliente
+    Cliente -->|Consulta dados e agenda serviços| Sistema
+    Veterinario -->|Realiza atendimentos e atualiza dados| Sistema
+    Atendente -->|Gerencia agenda e fluxo de atendimento| Sistema
+
+```
+---
+## 9.2. Diagrama de Container
+
+```mermaid
+graph TD
+    subgraph Sistema
+        Backend["Backend (API REST)"]
+        Database["Banco de Dados"]
+        Frontend["Frontend (Aplicação Web/Mobile)"]
+    end
+    Cliente["Cliente"] -->|Acessa via navegador/app| Frontend
+    Atendente["Atendente"] -->|Gerencia agenda e serviços| Frontend
+    Veterinario["Veterinário"] -->|Registra prontuários e receitas| Frontend
+    Frontend -->|Requisições| Backend
+    Backend -->|Armazena dados| Database
+    Backend -->|Consulta informações| Database
+
+```
+---
+## 9.3. Diagrama de Componente
+
+```mermaid
+graph TD
+    Backend["Backend"] -->|Gerencia| Modulo_Usuarios["Módulo de Gerenciamento de Usuários"]
+    Backend -->|Comunica| Modulo_Animais["Módulo de Gestão de Animais"]
+    Backend -->|Executa| Modulo_Agenda["Módulo de Agenda"]
+    Backend -->|Controla| Modulo_Notificacoes["Módulo de Notificações"]
+    Backend -->|Gera| Modulo_Prontuarios["Módulo de Prontuários e Receitas"]
+
+    Modulo_Usuarios --> Database["Banco de Dados"]
+    Modulo_Animais --> Database
+    Modulo_Agenda --> Database
+    Modulo_Notificacoes --> Database
+    Modulo_Prontuarios --> Database
+
+```
+---
+## 9.4. Diagrama de Código
+
+```mermaid
+classDiagram
+    class Sistema {
+        +gerenciarUsuarios()
+        +gerenciarAnimais()
+        +gerenciarAgenda()
+        +enviarNotificacoes()
+        +gerarProntuario()
+    }
+
+    class Usuario {
+        -id
+        -nome
+        -email
+        -telefone
+        +registrar()
+        +atualizar()
+    }
+
+    class Animal {
+        -id
+        -nome
+        -tipo
+        -raca
+        -habitos
+        -condicao
+        +registrar()
+        +atualizar()
+    }
+
+    class Agenda {
+        -id
+        -dataHora
+        -status
+        +marcarConsulta()
+        +gerenciarFila()
+    }
+
+    class Prontuario {
+        -id
+        -observacoes
+        -receitas
+        +criar()
+        +atualizar()
+    }
+
+    class Notificacao {
+        -id
+        -conteudo
+        -meio
+        +enviar()
+    }
+
+    Sistema --> Usuario
+    Sistema --> Animal
+    Sistema --> Agenda
+    Sistema --> Prontuario
+    Sistema --> Notificacao
+yaml
+```
+
+--- 
+
+# 10. Protótipo de Telas
+
+
+
+# 11. Diagrama de navegação de telas
 
 ```mermaid
 flowchart TD
@@ -536,12 +925,12 @@ flowchart TD
     W --> G
 ```
 
-# 11. Pilha tecnológica
+# 12. Pilha tecnológica
 
 ![<alt-text>](<Pilha Tecnologica.jpg>)
 
-# 12. Requisitos de sistemas
-## 12.1. Requisitos do lado do cliente
+# 13. Requisitos de sistemas
+## 13.1. Requisitos do lado do cliente
 
 **1. Cadastro de Cliente:**
 
@@ -590,7 +979,7 @@ flowchart TD
 Confirmação de Serviço de Pintura de Cachorro:
 - O cliente deve poder optar pelo serviço de pintura de cachorro durante o agendamento de banho e tosa.
 
-## 12.2. Requisitos do lado do servidor
+## 13.2. Requisitos do lado do servidor
 
 **1. Gerenciamento de Cadastro de Clientes e Animais:**
 
@@ -654,9 +1043,9 @@ Confirmação de Serviço de Pintura de Cachorro:
 
 - O sistema deve permitir que o servidor edite e atualize as informações do animal a qualquer momento, com base nos dados fornecidos pelo cliente, como mudança de hábitos ou troca de ração.
 
-# 13. Considerações sobre segurança
+# 14. Considerações sobre segurança
 
-## 13.1. Considerações do lado do cliente
+## 14.1. Considerações do lado do cliente
 
 **1. Autenticação Segura:**
 
@@ -696,7 +1085,7 @@ Confirmação de Serviço de Pintura de Cachorro:
 
 - As fichas de atendimento e receitas médicas dos animais devem ser protegidas, permitindo que apenas o cliente dono do animal as visualize, evitando o compartilhamento não autorizado dessas informações com outros clientes ou terceiros.
 
-## 13.2. Considerações do lado do servidor
+## 14.2. Considerações do lado do servidor
 
 **1. Autenticação Segura e Controle de Acesso:**
 
@@ -753,9 +1142,9 @@ Confirmação de Serviço de Pintura de Cachorro:
 - O servidor deve garantir a conformidade com leis de proteção de dados (como LGPD ou GDPR), especialmente no armazenamento, processamento e compartilhamento de dados pessoais dos clientes.
 - As informações devem ser processadas e armazenadas de forma segura e somente para as finalidades descritas, com mecanismos para anonimização ou pseudonimização de dados sensíveis, quando aplicável.
 
-# 14. Manutenção, instalação e Novas funcionalidades
+# 15. Manutenção, instalação e Novas funcionalidades
 
-## 14.1. Instalação
+## 15.1. Instalação
 
 **1. Configuração do Backend e Bibliotecas Terceirizadas:** O sistema será implementado em uma infraestrutura de nuvem (como AWS ou Azure) que permita escalabilidade e suporte para altas demandas de atendimento, considerando a integração com APIs de terceiros para notificações SMS e e-mail, como Twilio ou SendGrid. As bibliotecas de autenticação, como OAuth2 e JWT, também devem ser configuradas para garantir a segurança do acesso.
 
@@ -765,7 +1154,7 @@ Confirmação de Serviço de Pintura de Cachorro:
 
 **4. Aplicativos de Dispositivos Móveis:** O sistema possuindo apps para Android ou iOS, os mesmos devem ser disponibilizados nas lojas de aplicativos com configuração para atualizações automáticas e compatibilidade com diversos dispositivos para clientes e veterinários.
 
-## 14.2. Manutenção
+## 15.2. Manutenção
 
 **1. Monitoração Contínua:** Implementamos sistemas de monitoração, como o CloudWatch (AWS) ou AppDynamics, para analisar a carga de requisições, identificar possíveis falhas e monitorar o tempo de resposta das funcionalidades. A quantidade de logs gerados deve ser gerenciada e armazenada em um servidor seguro.
 
@@ -775,7 +1164,7 @@ Confirmação de Serviço de Pintura de Cachorro:
 
 **4. Alertas e Testes de Notificação:** É essencial realizar testes regulares das notificações SMS/e-mail e dos lembretes automáticos de consultas, vacinas e medicamentos. Se falharem, alertas devem ser gerados para equipes de manutenção.
 
-## 14.3. Planos de contingência
+## 15.3. Planos de contingência
 
 Para situações de emergência, como falhas no sistema ou interrupções de serviço, o sistema deve oferecer um plano de contingência que envolva:
 
@@ -783,33 +1172,33 @@ Para situações de emergência, como falhas no sistema ou interrupções de ser
 
 **2. Failover Automático:** Configurar o sistema para failover automático em servidores redundantes, garantindo o mínimo de interrupção no atendimento.
 
-## 14.4. Procedimentos Pós-Instalação
+## 15.4. Procedimentos Pós-Instalação
 
 **1. Configuração de Perfis de Usuário e Treinamento:** Criar perfis de acesso para clientes, atendentes e veterinários, com permissões específicas para cada tipo de usuário. Orientar a equipe sobre o uso das funcionalidades e do painel de administração.
 
 **2. Testes de Integração e Estresse:** Realizar testes para garantir que todos os componentes do sistema funcionem integrados, testando o volume de registros e a capacidade de resposta sob carga intensa, além da integração de dispositivos RFID e notificações.
 
-## 14.5. Monitoramento Lado Cliente e Servidor
+## 15.5. Monitoramento Lado Cliente e Servidor
 
 - **Cliente:** Verificação de atividade do usuário, armazenamento de cache e envio de relatórios de erro. No app, monitorar notificações e a precisão do rastreamento RFID.
 
 - **Servidor:** Controle de carga de CPU, tempo de resposta do banco de dados e geração de logs. Limpeza e arquivamento periódico dos logs devem ocorrer para evitar sobrecarga no armazenamento.
 
-## 14.6. Critérios de Backup e Restore
+## 15.6. Critérios de Backup e Restore
 
 **1. Periodicidade:** Backups diários para dados críticos, semanais para dados secundários e mensais para arquivos históricos.
 
 **2. Procedimento de Restauração:** Definir tempos de restauração garantidos para diferentes tipos de dados (até 4 horas para dados críticos e 24 horas para históricos).
   
-## 14.7. Suporte ao Usuário e Critérios de Atendimento
+## 15.7. Suporte ao Usuário e Critérios de Atendimento
 
 **1. Formulários de Suporte:** Formular um sistema de suporte no próprio app, com campos específicos para categoria de problema, descrição, e prioridade.
 
 **2. Critérios de Atendimento:** Definir tempos de resposta com base na criticidade do problema (e.g., problemas de autenticação são prioridade alta, enquanto atualizações de cadastro são média).
 
-# 15. Treinamento
+# 16. Treinamento
 
-## 15.1. Treinamento para Usuários (Clientes e Veterinários)
+## 16.1. Treinamento para Usuários (Clientes e Veterinários)
 
 Os treinamentos ocorrem presencilmente através de técnicos, ou por meio de vídeos ou um base de conhecimento completa.
 
@@ -843,7 +1232,7 @@ Os treinamentos ocorrem presencilmente através de técnicos, ou por meio de ví
 - Explicar como visualizar e agendar serviços como banho, tosa e fisioterapia.
 - Capacitar o usuário para explorar e agendar serviços adicionais, como consultas de nutrição e pintura de pets, conforme a oferta da clínica.
 
-## 15.2. Treinamento para Administradores
+## 16.2. Treinamento para Administradores
 
 Os treinamentos ocorrem presencilmente através de técnicos, ou por meio de vídeos ou um base de conhecimento completa.
 
@@ -877,9 +1266,9 @@ Os treinamentos ocorrem presencilmente através de técnicos, ou por meio de ví
 - Treinamento para identificar e solucionar problemas comuns no sistema, com procedimentos detalhados para questões recorrentes.
 - Fornecer material de apoio para usuários finais e fluxos de escalonamento para o atendimento de chamados complexos.
 
-# 16. Script SQL
+# 17. Script SQL
 
-## 16.1. Comandos CREATE table
+## 17.1. Comandos CREATE table
 ```sql
 
 CREATE DATABASE IF NOT EXISTS ClinicaVeterinaria;
@@ -1019,7 +1408,7 @@ CREATE TABLE RECOMENDACAO (
     FOREIGN KEY (RFID) REFERENCES ANIMAL(RFID)
 );
 ```
-## 16.2. Comandos INSERT table
+## 17.2. Comandos INSERT table
 
 ```sql
 -- Inserir dados na tabela CLIENTE
