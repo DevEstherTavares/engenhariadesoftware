@@ -1205,7 +1205,7 @@ Os treinamentos ocorrem presencialmente através de técnicos, ou por meio de v�
 
 ## 16.2. Treinamento para Administradores
 
-Os treinamentos ocorrem presencilmente através de técnicos, ou por meio de vídeos ou um base de conhecimento completa.
+Os treinamentos ocorrem presencialmente através de técnicos, ou por meio de vídeos ou uma base de conhecimento completa.
 
 **1. Instalação e Configuração Inicial:**
 
