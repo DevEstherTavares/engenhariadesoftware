@@ -144,7 +144,7 @@ Descrição do cenário onde o sistema deve funcionar:
 **30. O sistema deve emitir lembretes automáticos sobre a próxima dose de medicamentos prescritos para o animal e permitir o cliente confirmar se deu o medicamento ao animal.**
 
 **31. O cliente pode visualizar recomendações personalizadas de ração e suplementos com base no histórico de saúde do animal.**
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 ## 2.1. Requisitos
 
 > Requisitos funcionais e não funcionais
@@ -182,7 +182,7 @@ Descrição do cenário onde o sistema deve funcionar:
 | RNF08                    | O sistema deve ser escalável para suportar aumento no número de clientes, animais e serviços oferecidos.                                                        |
 | RNF09                    | Deve-se garantir backups automáticos diários para evitar perda de dados.                                                                                        |
 
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 # 3. Visão geral do sistema
 
 O sistema atende às necessidades dos clientes nas seguintes funcionalidades:
@@ -228,7 +228,7 @@ O sistema atende às necessidades dos clientes nas seguintes funcionalidades:
 
 - Visualização Completa: Em uma interface amigável, o cliente consegue gerenciar todos os dados dos animais e acompanhar o histórico de serviços e atendimentos realizados na clínica.
 - Acesso Simplificado: O sistema permite um acesso fácil às fichas médicas, receitas e histórico de vacinas, facilitando o acompanhamento da saúde do animal.
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 # 4. Diagrama ER
 
 ```mermaid
@@ -308,6 +308,7 @@ erDiagram
     Animal ||--o{ Servico : "recebe"
 
 ```
+[Voltar ao Início](#repositório_projeto_eng_sw)
 ## 4.1. Descrição das Entidades e Relacionamentos
 
 ## **Entidades**
@@ -410,7 +411,7 @@ erDiagram
   - `observacoes`: Notas adicionais sobre a prescrição.
 
 ---
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 ## **Relacionamentos**
 
 1. **CLIENTE possui ANIMAL**
@@ -445,7 +446,7 @@ erDiagram
    - Cada serviço pode ser utilizado por vários animais.
 
 ---
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 # 5. Diagrama de classe
 
 ```mermaid
@@ -559,6 +560,7 @@ classDiagram
     Animal "1" -- "0..*" LembreteMedicamento : possui >
     Animal "1" -- "0..*" Recomendacao : recebe >
 ```
+[Voltar ao Início](#repositório_projeto_eng_sw)
 ## 5.1. Descrição das Classes e Relacionamentos
 
 #### **Classes**
@@ -622,7 +624,7 @@ classDiagram
      - `emitirReceita()`: Gera uma receita associada ao atendimento.
 
 ---
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 ## 5.2. **Relacionamentos**
 
 1. **Cliente - Animal**
@@ -648,13 +650,13 @@ classDiagram
 6. **Animal - Servico**
    - **Descrição:** Um animal pode utilizar múltiplos serviços, como banho, tosa e cirurgias.
    - **Cardinalidade:** 1 Animal → 0..* Servicos.
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 # 6. Casos de uso
 
 ## 6.1. Casos de uso
 
 ![<alt-text>](<Diagrama casos de uso.jpg>)
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 # 6.2. Histórias de Usuário
 
 
@@ -758,16 +760,16 @@ classDiagram
 **Quero** visualizar recomendações personalizadas de ração e suplementos com base no histórico de saúde do meu animal,  
 **Para** garantir que ele esteja recebendo a melhor nutrição possível.
 
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 # 7. Diagrama de componentes
 
 ![<alt-text>](<Diagrama de componentes.jpeg>)
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 
 # 8. Diagramas de implantação
 
 ![<alt-text>](<Diagrama de Implementação.jpeg>)
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 # 9. Digramas C4
 
 ## 9.1. Diagrama de contexto
@@ -783,6 +785,7 @@ graph LR
     Atendente -->|Gerencia agenda e fluxo de atendimento| Sistema
 
 ```
+[Voltar ao Início](#repositório_projeto_eng_sw)
 ---
 ## 9.2. Diagrama de Container
 
@@ -801,6 +804,7 @@ graph TD
     Backend -->|Consulta informações| Database
 
 ```
+[Voltar ao Início](#repositório_projeto_eng_sw)
 ---
 ## 9.3. Diagrama de Componente
 
@@ -819,6 +823,7 @@ graph TD
     Modulo_Prontuarios --> Database
 
 ```
+[Voltar ao Início](#repositório_projeto_eng_sw)
 ---
 ## 9.4. Diagrama de Código
 
@@ -882,7 +887,7 @@ classDiagram
     Sistema --> Notificacao
 yaml
 ```
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 --- 
 
 # 10. Protótipo de Telas
@@ -891,15 +896,15 @@ yaml
 ![<alt-text>](<Página 2.png>)
 ![<alt-text>](<Página 3.png>)
 ![<alt-text>](<Página 4.png>)
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 # 11. Diagrama de navegação de telas
 
 ![<alt-text>](<Navegação de telas.png>)
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 # 12. Pilha tecnológica
 
 ![<alt-text>](<Pilha Tecnologica.jpg>)
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 # 13. Requisitos de sistemas
 ## 13.1. Requisitos do lado do cliente
 
@@ -949,7 +954,7 @@ yaml
 - O cliente poderá modificar as informações do seu cadastro e do animal a qualquer momento, como a mudança de hábitos ou troca de ração.
 Confirmação de Serviço de Pintura de Cachorro:
 - O cliente deve poder optar pelo serviço de pintura de cachorro durante o agendamento de banho e tosa.
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 ## 13.2. Requisitos do lado do servidor
 
 **1. Gerenciamento de Cadastro de Clientes e Animais:**
@@ -1013,7 +1018,7 @@ Confirmação de Serviço de Pintura de Cachorro:
 **12. Atualização de Informações dos Animais:**
 
 - O sistema deve permitir que o servidor edite e atualize as informações do animal a qualquer momento, com base nos dados fornecidos pelo cliente, como mudança de hábitos ou troca de ração.
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 # 14. Considerações sobre segurança
 
 ## 14.1. Considerações do lado do cliente
@@ -1055,7 +1060,7 @@ Confirmação de Serviço de Pintura de Cachorro:
 **9. Controle de Acesso às Fichas e Receitas:**
 
 - As fichas de atendimento e receitas médicas dos animais devem ser protegidas, permitindo que apenas o cliente dono do animal as visualize, evitando o compartilhamento não autorizado dessas informações com outros clientes ou terceiros.
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 ## 14.2. Considerações do lado do servidor
 
 **1. Autenticação Segura e Controle de Acesso:**
@@ -1112,7 +1117,7 @@ Confirmação de Serviço de Pintura de Cachorro:
 
 - O servidor deve garantir a conformidade com leis de proteção de dados (como LGPD ou GDPR), especialmente no armazenamento, processamento e compartilhamento de dados pessoais dos clientes.
 - As informações devem ser processadas e armazenadas de forma segura e somente para as finalidades descritas, com mecanismos para anonimização ou pseudonimização de dados sensíveis, quando aplicável.
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 # 15. Manutenção, instalação e Novas funcionalidades
 
 ## 15.1. Instalação
@@ -1166,7 +1171,7 @@ Para situações de emergência, como falhas no sistema ou interrupções de ser
 **1. Formulários de Suporte:** Formular um sistema de suporte no próprio app, com campos específicos para categoria de problema, descrição, e prioridade.
 
 **2. Critérios de Atendimento:** Definir tempos de resposta com base na criticidade do problema (e.g., problemas de autenticação são prioridade alta, enquanto atualizações de cadastro são média).
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 # 16. Treinamento
 
 ## 16.1. Treinamento para Usuários (Clientes e Veterinários)
@@ -1202,7 +1207,7 @@ Os treinamentos ocorrem presencialmente através de técnicos, ou por meio de v�
 
 - Explicar como visualizar e agendar serviços como banho, tosa e fisioterapia.
 - Capacitar o usuário para explorar e agendar serviços adicionais, como consultas de nutrição e pintura de pets, conforme a oferta da clínica.
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 ## 16.2. Treinamento para Administradores
 
 Os treinamentos ocorrem presencialmente através de técnicos, ou por meio de vídeos ou uma base de conhecimento completa.
@@ -1236,7 +1241,7 @@ Os treinamentos ocorrem presencialmente através de técnicos, ou por meio de v�
 
 - Treinamento para identificar e solucionar problemas comuns no sistema, com procedimentos detalhados para questões recorrentes.
 - Fornecer material de apoio para usuários finais e fluxos de escalonamento para o atendimento de chamados complexos.
-
+[Voltar ao Início](#repositório_projeto_eng_sw)
 # 17. Script SQL
 
 ## 17.1. Comandos CREATE table
@@ -1379,6 +1384,7 @@ CREATE TABLE RECOMENDACAO (
     FOREIGN KEY (RFID) REFERENCES ANIMAL(RFID)
 );
 ```
+[Voltar ao Início](#repositório_projeto_eng_sw)
 ## 17.2. Comandos INSERT table
 
 ```sql
@@ -1463,6 +1469,7 @@ INSERT INTO RECOMENDACAO (Racao_Recomendada, Suplemento_Recomendado, RFID) VALUE
 ('Ração Premium', 'Suplemento Vitaminico A', 'RFID001'),
 ('Ração Gourmet', 'Suplemento Mineral B', 'RFID002');
 ```
+[Voltar ao Início](#repositório_projeto_eng_sw)
 
 
 [componentDiagramImage1]: <Diagrama de componentes-1.jpeg>
