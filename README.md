@@ -1171,7 +1171,7 @@ Para situações de emergência, como falhas no sistema ou interrupções de ser
 
 ## 16.1. Treinamento para Usuários (Clientes e Veterinários)
 
-Os treinamentos ocorrem presencilmente através de técnicos, ou por meio de vídeos ou um base de conhecimento completa.
+Os treinamentos ocorrem presencialmente através de técnicos, ou por meio de vídeos ou uma base de conhecimento completa.
 
 **1. Introdução ao Sistema e Interface:**
 
